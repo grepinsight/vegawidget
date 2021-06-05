@@ -104,7 +104,7 @@ vw_to_svg <- function(spec, width = NULL, height = NULL, base_url = NULL,
       args = c(script_path, pkg_path, spec_path, seed, base_url)
     )
 
-  if (res$stderr != "") {
+  if (res$stderr != "" & !startsWith(res$stderr, "WARN")) {
     stop("Error in compiling to svg:\n", res$stderr)
   }
   res$stdout
